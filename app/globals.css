@@ -10,3 +10,19 @@ body {
 .title-sub {
   text-align: center;
 }
+.food {
+  margin: 20px auto;
+  width: 200px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  border-radius: 5px;
+}
+.navbar {
+  background-color: #ffffff;
+  padding: 20px;
+}
+.navbar a {
+  margin-right: 10px;
+  text-decoration: none;
+}
