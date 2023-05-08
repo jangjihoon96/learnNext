@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 
 export default function List() {
   let products = [
@@ -23,10 +26,19 @@ export default function List() {
       alt: "코코넛",
     },
   ];
+
+  const [count, setCount] = useState([0, 0, 0]);
+  const handleIncrease = () => {
+    setCount(count + 1);
+  };
+  const handleDecrease = () => {
+    setCount(count - 1);
+  };
+
   return (
     <div>
       <h4 className="title">상품목록</h4>
-      {products.map((item) => {
+      {products.map((item, idx) => {
         return (
           <div className="food" key={item.id}>
             <img
@@ -37,6 +49,31 @@ export default function List() {
             <h4>
               {item.name} ${item.price}
             </h4>
+            {/* <button onClick={handleDecrease}>-</button> */}
+            <button
+              onClick={() => {
+                const copy = [...count];
+                if (copy[idx] <= 0) {
+                  copy[idx] == 0;
+                } else {
+                  copy[idx]--;
+                }
+                setCount(copy);
+              }}
+            >
+              -
+            </button>
+            <span>{count[idx]}</span>
+            {/* <button onClick={handleIncrease}>+</button> */}
+            <button
+              onClick={() => {
+                const copy = [...count];
+                copy[idx]++;
+                setCount(copy);
+              }}
+            >
+              +
+            </button>
           </div>
         );
       })}
